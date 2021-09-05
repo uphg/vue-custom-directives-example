@@ -1,6 +1,6 @@
 <template>
   <div class="input-number-demo">
-    <h2>实现一个简单的 v-model 指令</h2>
+    <h2>实现一个简单的 v-model 指令（v-model2）</h2>
     <div>
       <input v-model2="age" type="text">
       <p>{{ age }}</p>
