@@ -11,12 +11,19 @@ const bindModel = (el, binding, vnode) => {
   el.value = binding.value
 
   // 获取绑定的 key 名称
-  const { expression } = binding
+  const { expression, modifiers } = binding
+
+  console.log('binding')
+  console.log(binding)
 
   el.addEventListener('input', onInput = (e) => {
-    console.log('我输入的内容是：')
-    console.log(e.target.value)
-    vnode.context[expression] = e.target.value
+    // 如果存在 trim 修饰符
+    if (modifiers.trim) {
+      el.value = e.target.value.trim()
+      vnode.context[expression] = e.target.value.trim() // 调用 String.prototype.trim() 原生方法
+    } else {
+      vnode.context[expression] = e.target.value
+    }
   })
 }
 
