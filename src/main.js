@@ -13,9 +13,6 @@ const bindModel = (el, binding, vnode) => {
   // 获取绑定的 key 名称
   const { expression, modifiers } = binding
 
-  console.log('binding')
-  console.log(binding)
-
   el.addEventListener('input', onInput = (e) => {
     // 如果存在 trim 修饰符
     if (modifiers.trim) {
